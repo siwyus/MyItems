@@ -1,5 +1,7 @@
 import React from "react";
 import { Container, Col, Row } from "react-bootstrap";
+import ItemTable from "./components/ItemTable";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const App = () => {
@@ -9,12 +11,15 @@ const App = () => {
       <p className="text-center">
         Save your items for not to forget them while moving!
       </p>
+      <br />
       <Row>
         <Col>
-          <h2> Add Item </h2>
+          <h2 className="text-center"> Add Item </h2>
         </Col>
         <Col>
-          <h2> Items </h2>
+          <h2 className="text-center"> Items </h2>
+          <br />
+          <ItemTable />
         </Col>
       </Row>
     </Container>
