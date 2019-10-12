@@ -1,17 +1,7 @@
 import React from "react";
 import { Table } from "react-bootstrap";
 
-const ItemTable = () => {
-  const actions = (
-    <td>
-      <button type="button" class="btn btn-primary">
-        Edit
-      </button>
-      <button type="button" class="btn btn-danger">
-        Delete
-      </button>
-    </td>
-  );
+const ItemTable = props => {
   return (
     <Table bordered hover size="sm">
       <thead>
@@ -22,28 +12,29 @@ const ItemTable = () => {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>item1</td>
-          <td>
-            <button type="button" class="btn btn-primary">
-              Edit
-            </button>
-            <button type="button" class="btn btn-danger">
-              Delete
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>item2</td>
-          {actions}
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>item3</td>
-          {actions}
-        </tr>
+        {props.items.length > 0 ? (
+          props.items.map(item => (
+            <tr key={item.id}>
+              <td>{item.id}</td>
+              <td>{item.name}</td>
+              <td>
+                <button type="button" className="btn btn-primary">
+                  Edit
+                </button>
+                <button
+                  onClick={() => props.deleteItem(item.id)}
+                  className="btn btn-danger"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          ))
+        ) : (
+          <tr>
+            <td colSpan={3}>No items.</td>
+          </tr>
+        )}
       </tbody>
     </Table>
   );
