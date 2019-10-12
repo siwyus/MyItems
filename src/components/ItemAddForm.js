@@ -11,17 +11,15 @@ const ItemAddForm = props => {
 
     setItem({ ...item, [name]: value });
   };
+  const onSubmit = e => {
+    e.preventDefault();
+    if (!item.name) return;
 
+    props.addItem(item);
+    setItem(initialFormState);
+  };
   return (
-    <form
-      onSubmit={event => {
-        event.preventDefault();
-        if (!item.name) return;
-
-        props.addItem(item);
-        setItem(initialFormState);
-      }}
-    >
+    <form onSubmit={onSubmit}>
       <label>Name</label>
       <input
         type="text"
