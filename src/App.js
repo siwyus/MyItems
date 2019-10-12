@@ -46,12 +46,12 @@ const App = () => {
       <Row>
         <Col>
           <h2 className="text-center"> Add Item </h2>
-          <ItemAddForm addItem={addItem} deleteItem={deleteItem} />
+          <ItemAddForm addItem={addItem} />
         </Col>
         <Col>
           <h2 className="text-center"> Items </h2>
           <br />
-          <ItemTable items={items} />
+          <ItemTable items={items} deleteItem={deleteItem} />
         </Col>
       </Row>
     </Container>
