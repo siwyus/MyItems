@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-const ItemAddForm = props => {
-  const initialFormState = { id: null, name: "" };
+const ItemEditForm = props => {
+  const [item, setItem] = useState(props.currentItem);
 
-  const [item, setItem] = useState(initialFormState);
+  useEffect(() => {
+    setItem(props.currentItem);
+  }, [props]);
 
   const handleInputChange = e => {
     const { name, value } = e.target;
@@ -12,10 +14,8 @@ const ItemAddForm = props => {
   };
   const onSubmit = e => {
     e.preventDefault();
-    if (!item.name) return;
 
-    props.addItem(item);
-    setItem(initialFormState);
+    props.updateItem(item.id, item);
   };
   return (
     <form onSubmit={onSubmit}>
@@ -27,9 +27,10 @@ const ItemAddForm = props => {
         onChange={handleInputChange}
       />
 
-      <button>Add new item</button>
+      <button>Update item</button>
+      <button onClick={() => props.setEditing(false)}>Cancel</button>
     </form>
   );
 };
 
-export default ItemAddForm;
+export default ItemEditForm;

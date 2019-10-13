@@ -18,7 +18,12 @@ const ItemTable = props => {
               <td>{item.id}</td>
               <td>{item.name}</td>
               <td>
-                <button type="button" className="btn btn-primary">
+                <button
+                  onClick={() => {
+                    props.editRow(item);
+                  }}
+                  className="btn btn-primary"
+                >
                   Edit
                 </button>
                 <button
