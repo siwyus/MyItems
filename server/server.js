@@ -29,6 +29,10 @@ app.use(express.json({ extended: false }));
 
 app.get("/", (req, res) => res.json({ msg: "Welcome to MyItems API!" }));
 
+// Define Routes
+
+app.use("/api/items", require("./routes/items"));
+
 // Get port at 5000
 
 const PORT = process.env.PORT || 5000;
