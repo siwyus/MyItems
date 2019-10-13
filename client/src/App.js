@@ -1,13 +1,14 @@
 import React from "react";
 
 import "./App.css";
+import ItemState from "./context/items/ItemState";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
+    <ItemState>
       <h1>Hello World</h1>
-    </div>
+    </ItemState>
   );
-}
+};
 
 export default App;
