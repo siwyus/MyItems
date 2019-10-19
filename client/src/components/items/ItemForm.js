@@ -58,6 +58,7 @@ const ItemForm = () => {
           onChange={onChange}
           required
         />
+        <br />
         <input
           type="submit"
           value={!current ? "Add item" : "Update item"}

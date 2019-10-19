@@ -19,9 +19,9 @@ const Item = ({ item }) => {
     <Fragment>
       {name && (
         <Row>
-          <Col sm="8">{name}</Col>
+          <Col sm="9">{name}</Col>
 
-          <Col sm="4">
+          <Col sm="3" className="text-right">
             <button
               className="btn btn-dark btn-sm"
               onClick={() => {

@@ -2,13 +2,16 @@ import React from "react";
 import ItemForm from "./components/items/ItemForm";
 import { Col, Container, Row } from "react-bootstrap";
 
+import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ItemState from "./context/items/ItemState";
-import ItemTable from "./components/items/ItemTable";
+import ItemList from "./components/items/ItemList";
+import MainNavbar from "./components/layout/MainNavbar";
 
 const App = () => {
   return (
     <ItemState>
+      <MainNavbar />
       <br />
       <Container>
         <Row>
@@ -17,7 +20,7 @@ const App = () => {
           </Col>
 
           <Col>
-            <ItemTable />
+            <ItemList />
           </Col>
         </Row>
       </Container>
