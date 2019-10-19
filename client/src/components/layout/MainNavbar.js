@@ -8,7 +8,7 @@ const MainNavbar = () => {
       <Nav className="mr-auto">
         <Nav.Link href="#home">Home</Nav.Link>
         <Nav.Link href="#features">Features</Nav.Link>
-        <Nav.Link href="#pricing">About</Nav.Link>
+        <Nav.Link href="#about">About</Nav.Link>
       </Nav>
       <Form inline>
         <FormControl type="text" placeholder="Search" className="mr-sm-2" />
