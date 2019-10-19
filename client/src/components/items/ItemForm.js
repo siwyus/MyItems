@@ -3,7 +3,8 @@ import ItemContext from "../../context/items/itemContext";
 
 const ItemForm = () => {
   const itemContext = useContext(ItemContext);
-  const { addItem, current, clearCurrent, updateItem, error } = itemContext;
+
+  const { addItem, current, clearCurrent, updateItem } = itemContext;
 
   useEffect(() => {
     if (current !== null) {
@@ -13,7 +14,7 @@ const ItemForm = () => {
         name: ""
       });
     }
-  }, [error, itemContext, current]);
+  }, [itemContext, current]);
 
   const [item, setItem] = useState({
     name: ""
@@ -47,6 +48,7 @@ const ItemForm = () => {
         <input
           className="form-control"
           type="text"
+          placeholder="name"
           name="name"
           value={name}
           onChange={onChange}
