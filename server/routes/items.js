@@ -39,11 +39,18 @@ router.post(
     const { name } = req.body;
 
     try {
+      // let newItem = await Item.findOne({ name });
+
+      //  if (newItem) {
+      //     return res.status(400).json({ msg: "Item already exists." });
+
+      //   }
+
       const newItem = new Item({
         name
       });
 
-      const item = await newItem.save();
+      item = await newItem.save();
 
       res.json(item);
     } catch (err) {

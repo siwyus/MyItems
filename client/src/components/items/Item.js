@@ -30,7 +30,13 @@ const Item = ({ item }) => {
             >
               Edit
             </button>
-            <button className="btn btn-danger btn-sm" onClick={onDelete}>
+            <button
+              className="btn btn-danger btn-sm"
+              onClick={e =>
+                window.confirm("Are you sure you wish to delete this item?") &&
+                onDelete(e)
+              }
+            >
               Delete
             </button>
           </Col>

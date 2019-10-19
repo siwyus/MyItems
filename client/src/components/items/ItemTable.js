@@ -2,7 +2,7 @@
 import React, { useContext, useEffect, Fragment } from "react";
 
 import ItemContext from "../../context/items/itemContext";
-import { Container, Col, Row } from "react-bootstrap";
+import { Col, Row, Alert, Spinner } from "react-bootstrap";
 import Item from "./Item";
 
 const ItemTable = () => {
@@ -14,33 +14,34 @@ const ItemTable = () => {
     // eslint-disable-next-line
   }, []);
 
-  // const onDelete = () => {
-  //   deleteItem(item._id);
-  //   clearCurrent();
-  // };
-
   let id = 0;
-
-  //console.log(items);
-
-  //scroll
 
   return (
     <Fragment>
       <h2 className="text-center text-primary">Myitems</h2>
       <br />
-      {items !== null &&
-        !loading &&
+      {items !== null && items.length === 0 && !loading && (
+        <Alert variant="secondary" className="centered">
+          Lack of items.
+        </Alert>
+      )}
+      {items !== null && !loading ? (
         items.map(item => (
-          <Container key={item._id}>
+          <Fragment key={item._id}>
             <Row>
-              <Col xs="1">{(id = id + 1)}</Col>
+              <Col xs="1">{(id = id + 1)}.</Col>
               <Col>
                 <Item key={item._id} item={item} />
               </Col>
             </Row>
-          </Container>
-        ))}
+            {/* {console.log(item._id)} */}
+          </Fragment>
+        ))
+      ) : (
+        <div>
+          <Spinner animation="border" size="large" variant="secondary" />
+        </div>
+      )}
     </Fragment>
   );
 };
