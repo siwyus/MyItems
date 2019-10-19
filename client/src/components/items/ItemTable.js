@@ -1,6 +1,9 @@
-import React, { useContext, useEffect } from "react";
+// eslint-disable-next-line
+import React, { useContext, useEffect, Fragment } from "react";
+
 import ItemContext from "../../context/items/itemContext";
-import { Table } from "react-bootstrap";
+import { Container, Col, Row } from "react-bootstrap";
+import Item from "./Item";
 
 const ItemTable = () => {
   const itemContext = useContext(ItemContext);
@@ -11,39 +14,34 @@ const ItemTable = () => {
     // eslint-disable-next-line
   }, []);
 
+  // const onDelete = () => {
+  //   deleteItem(item._id);
+  //   clearCurrent();
+  // };
+
   let id = 0;
-  // console.log(items);
+
+  //console.log(items);
+
+  //scroll
 
   return (
-    <Table striped bordered hover size="sm">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Name</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        {items !== null && !loading ? (
-          items.map(item => (
-            <tr key={item._id}>
-              <td>{(id = id + 1)}</td>
-              <td>{item.name}</td>
-              <td>
-                <button type="button" className="btn btn-primary">
-                  Edit
-                </button>
-                <button className="btn btn-danger">Delete</button>
-              </td>
-            </tr>
-          ))
-        ) : (
-          <tr>
-            <td colSpan={3}>No items.</td>
-          </tr>
-        )}
-      </tbody>
-    </Table>
+    <Fragment>
+      <h2 className="text-center text-primary">Myitems</h2>
+      <br />
+      {items !== null &&
+        !loading &&
+        items.map(item => (
+          <Container key={item._id}>
+            <Row>
+              <Col xs="1">{(id = id + 1)}</Col>
+              <Col>
+                <Item key={item._id} item={item} />
+              </Col>
+            </Row>
+          </Container>
+        ))}
+    </Fragment>
   );
 };
 

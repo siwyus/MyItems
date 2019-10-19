@@ -76,6 +76,7 @@ const ItemState = props => {
         payload: err.response.msg
       });
     }
+    clearCurrent();
   };
 
   // Delete Item

@@ -9,14 +9,14 @@ import ItemTable from "./components/items/ItemTable";
 const App = () => {
   return (
     <ItemState>
+      <br />
       <Container>
         <Row>
-          <Col>
+          <Col md="auto">
             <ItemForm />
           </Col>
 
           <Col>
-            <h2>hello</h2>
             <ItemTable />
           </Col>
         </Row>

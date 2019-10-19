@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
+
 import ItemContext from "../../context/items/itemContext";
 
 const ItemForm = () => {
@@ -44,7 +45,10 @@ const ItemForm = () => {
   return (
     <div>
       <form onSubmit={onSubmit}>
-        <h2>{!current ? "Add item" : "Edit item"}</h2>
+        <h2 className="text-center text-primary">
+          {!current ? "Add item" : "Edit item"}
+        </h2>
+        <br />
         <input
           className="form-control"
           type="text"
@@ -59,7 +63,11 @@ const ItemForm = () => {
           value={!current ? "Add item" : "Update item"}
           className="btn btn-dark btn-block"
         />
-        {current && <button onClick={clearAll}>Clear</button>}
+        {current && (
+          <button className="btn btn-secondary btn-block" onClick={clearAll}>
+            Clear
+          </button>
+        )}
       </form>
     </div>
   );
