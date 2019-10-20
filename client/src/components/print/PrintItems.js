@@ -18,7 +18,7 @@ const PrintItems = () => {
       {items !== null &&
         !loading &&
         items.map(item => (
-          <Container className="list-group-item" key={item._id}>
+          <Container className="list-group-item text-center" key={item._id}>
             <Row>
               <Col xs="1">{(id = id + 1)}.</Col>
               <Col>

@@ -6,7 +6,6 @@
 }
 .print {
   padding-top: 50px;
-  /* border: blueviolet;
-  border-top: 5px;
-  border-top-color: blueviolet; */
+  padding-left: 20%;
+  padding-right: 20%;
 }
