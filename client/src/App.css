@@ -5,7 +5,13 @@
   -webkit-overflow-scrolling: auto;
 }
 .print {
-  padding-top: 50px;
-  padding-left: 20%;
-  padding-right: 20%;
+  padding: 20%;
+}
+.print-item {
+  position: relative;
+
+  padding: 0.75rem 1.25rem;
+  margin-bottom: -1px;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.125);
 }

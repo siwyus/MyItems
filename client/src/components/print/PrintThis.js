@@ -6,7 +6,7 @@ import { Container } from "react-bootstrap";
 class Print extends Component {
   render() {
     return (
-      <div className="print">
+      <div>
         <PrintItems />
       </div>
     );

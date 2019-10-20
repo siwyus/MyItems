@@ -11,24 +11,27 @@ const PrintItems = () => {
     getItems();
     // eslint-disable-next-line
   }, []);
-
-  let id = 0;
-  return (
-    <div>
-      {items !== null &&
-        !loading &&
-        items.map(item => (
-          <Container className="list-group-item text-center" key={item._id}>
-            <Row>
-              <Col xs="1">{(id = id + 1)}.</Col>
-              <Col>
-                <ItemToPrint key={item._id} item={item} />
-              </Col>
-            </Row>
-          </Container>
-        ))}
-    </div>
-  );
+  try {
+    let id = 0;
+    return (
+      <div className="print">
+        {items !== null &&
+          !loading &&
+          items.map(item => (
+            <Container className="print-item" key={item._id}>
+              <Row>
+                <Col xs="1">{(id = id + 1)}.</Col>
+                <Col>
+                  <ItemToPrint key={item._id} item={item} />
+                </Col>
+              </Row>
+            </Container>
+          ))}
+      </div>
+    );
+  } catch (error) {
+    window.location.reload();
+  }
 };
 
 export default PrintItems;

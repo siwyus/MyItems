@@ -13,39 +13,41 @@ const ItemList = () => {
     getItems();
     // eslint-disable-next-line
   }, []);
+  try {
+    let id = 0;
 
-  let id = 0;
-
-  return (
-    <Fragment>
-      <h2 className="text-center text-primary">Myitems</h2>
-      <br />
-      {items !== null && items.length === 0 && !loading && (
-        <Alert variant="secondary" className="centered">
-          Lack of items.
-        </Alert>
-      )}
-      <div className="scroll">
-        {items !== null && !loading ? (
-          items.map(item => (
-            <Container className="list-group-item" key={item._id}>
-              <Row>
-                <Col xs="1">{(id = id + 1)}.</Col>
-                <Col>
-                  <Item key={item._id} item={item} />
-                </Col>
-              </Row>
-              {/* {console.log(item._id)} */}
-            </Container>
-          ))
-        ) : (
-          <div>
-            <Spinner animation="border" size="large" variant="secondary" />
-          </div>
+    return (
+      <Fragment>
+        <h2 className="text-center">Myitems</h2>
+        <br />
+        {items !== null && items.length === 0 && !loading && (
+          <Alert variant="secondary" className="centered">
+            Lack of items.
+          </Alert>
         )}
-      </div>
-    </Fragment>
-  );
+        <div className="scroll">
+          {items !== null && !loading ? (
+            items.map(item => (
+              <Container className="list-group-item" key={item._id}>
+                <Row>
+                  <Col xs="1">{(id = id + 1)}.</Col>
+                  <Col>
+                    <Item key={item._id} item={item} />
+                  </Col>
+                </Row>
+              </Container>
+            ))
+          ) : (
+            <div>
+              <Spinner animation="border" size="large" variant="secondary" />
+            </div>
+          )}
+        </div>
+      </Fragment>
+    );
+  } catch (error) {
+    window.location.reload();
+  }
 };
 
 export default ItemList;

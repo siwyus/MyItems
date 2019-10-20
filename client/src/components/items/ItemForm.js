@@ -45,9 +45,7 @@ const ItemForm = () => {
   return (
     <div>
       <form onSubmit={onSubmit}>
-        <h2 className="text-center text-primary">
-          {!current ? "Add item" : "Edit item"}
-        </h2>
+        <h2 className="text-center">{!current ? "Add item" : "Edit item"}</h2>
         <br />
         <input
           className="form-control"
