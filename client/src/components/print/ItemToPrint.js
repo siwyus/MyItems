@@ -5,7 +5,7 @@ import { Row } from "react-bootstrap";
 const ItemToPrint = ({ item }) => {
   const { name } = item;
 
-  return <Fragment>{name && <Row>{name}</Row>}</Fragment>;
+  return <Fragment> {name && <Row> {name}</Row>}</Fragment>;
 };
 
 ItemToPrint.propTypes = {

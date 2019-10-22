@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import ItemContext from "../../context/items/itemContext";
-import { Col, Row, Container } from "react-bootstrap";
+// import { Col, Row, Container } from "react-bootstrap";
 import ItemToPrint from "./ItemToPrint";
 
 const PrintItems = () => {
@@ -11,22 +11,30 @@ const PrintItems = () => {
     getItems();
     // eslint-disable-next-line
   }, []);
+
+  let date = new Date();
+  date =
+    date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
+
   try {
     let id = 0;
+
     return (
-      <div className="print">
-        {items !== null &&
-          !loading &&
-          items.map(item => (
-            <Container className="print-item" key={item._id}>
-              <Row>
-                <Col xs="1">{(id = id + 1)}.</Col>
-                <Col>
+      <div className="print-header">
+        {date}
+        <div className="print">
+          {items !== null &&
+            !loading &&
+            items.map(item => (
+              <div className="print-item" key={item._id}>
+                <div style={{ float: "left" }}>{(id = id + 1)}.&nbsp;</div>
+
+                <div>
                   <ItemToPrint key={item._id} item={item} />
-                </Col>
-              </Row>
-            </Container>
-          ))}
+                </div>
+              </div>
+            ))}
+        </div>
       </div>
     );
   } catch (error) {

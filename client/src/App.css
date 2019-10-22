@@ -5,7 +5,7 @@
   -webkit-overflow-scrolling: auto;
 }
 .print {
-  padding: 20%;
+  padding: 10%;
 }
 .print-item {
   position: relative;
@@ -13,4 +13,8 @@
   padding-right: 5rem;
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.125);
+}
+.print-header {
+  padding-left: 2rem;
+  padding-top: 2rem;
 }

@@ -1,4 +1,4 @@
-# MyItems App - create list of your items and print it out!
+# **MyItems App** - create list of your items and print it out!
 
 ## Simple CRUD application for make list of your items or whatever you want. Made it because I had needed save my items before move to other place.
 
@@ -12,7 +12,8 @@
 ## Dependencies
 
 - nodemon
-- axios
-- react-to-print
 - express
 - express-validator
+- react-to-print
+- axios
+- react-bootstrap
